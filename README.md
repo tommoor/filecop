@@ -2,6 +2,8 @@
 
 Filecop is designed to find sensitive files in a provided list. Ideally this would be integrated into something like a git pre-commit hook or post commit check to reduce instances of leaked credentials.
 
+The base list of sensitive files is from [jandre/safe-commit-hook](https://github.com/jandre/safe-commit-hook/blob/master/git-deny-patterns.json) - I hope to add to this and contribute back over time.
+
 ## Installation
 
 Add this line to your application's Gemfile:
