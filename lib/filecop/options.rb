@@ -5,11 +5,17 @@ module Filecop
     def self.parse!(args)
       # The options specified on the command line will be collected here
       options = OpenStruct.new
-      
+      options.json = false
+
       opt_parser = OptionParser.new do |opts|
-        # typical switch to print the version.
-        opts.on_tail("--version", "Show version") do
-          puts ::Version.join('.')
+        opts.banner = 'Usage: filecop [options] [file1, file2, ...]'
+
+        opts.on("-j", "--json", "Output as JSON") do |v|
+          options.json = true
+        end
+
+        opts.on_tail('--version', 'Show version') do
+          puts Filecop::VERSION
           exit
         end
       end

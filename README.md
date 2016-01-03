@@ -1,8 +1,6 @@
 # Filecop
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/filecop`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Filecop is designed to find sensitive files in a provided list. Ideally this would be integrated into something like a git pre-commit hook or post commit check to reduce instances of leaked credentials.
 
 ## Installation
 
@@ -22,7 +20,35 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Using filecop is easy, pass no arguments to check all files in the current directory:
+
+    $ filecop
+
+or pass a list of individual files to check:
+
+    $ filecop private.key README.md .bashrc
+
+Output will look something like this:
+
+```
+Checking 3 files
+
+Issues:
+
+private.key: Potential cryptographic private key
+.bashrc: Shell configuration file
+
+3 files checked, 2 potential problems
+```
+
+Or pass the `--json` flag to get a machine parseable output
+
+```
+[
+  {"file": "private.key", "message": "Potential cryptographic private key"},
+  {"file": ".bashrc", "message": "Shell configuration file"}
+]
+```
 
 ## Development
 
@@ -32,7 +58,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/filecop.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tommoor/filecop.
 
 
 ## License

@@ -6,4 +6,4 @@ $LOAD_PATH.unshift(File.dirname(File.realpath(__FILE__)) + '/../lib')
 require 'filecop'
 
 cli = Filecop::CLI.new
-cli.run
+exit cli.run
