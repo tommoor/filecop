@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/filecop.svg)](https://badge.fury.io/rb/filecop)
+
 # Filecop
 
 Filecop is designed to find sensitive files in a provided list. Ideally this would be integrated into something like a git pre-commit hook or post commit check to reduce instances of leaked credentials.
