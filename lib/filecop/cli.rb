@@ -4,16 +4,15 @@ module Filecop
     def run(args = ARGV)
       @options, @paths = Options.parse!(args)
       @paths = Dir.entries(".") if @paths.length==0
-
-      unless @options.json
-        puts "Checking #{@paths.length} files\n"
-      end
-
-      files = Runner.new(@paths).run
+      runner = Runner.new(@paths)
 
       if @options.json
+        files = runner.run
         puts JSON.generate files.map { |p| { file: p[:file], message: p[:rule].message } } 
       else
+        puts "Checking #{@paths.length} files\n"
+        files = runner.run
+        
         if files.length>0
           puts "\nIssues:\n\n"
         end
