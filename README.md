@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-Using filecop is easy, pass no arguments to check all files in the current directory:
+Using filecop is easy, pass no arguments to check all files in the current directory from the command line:
 
     $ filecop
 
@@ -52,6 +52,14 @@ Or pass the `--json` flag to get a machine parseable output
   {"file": "private.key", "message": "Potential cryptographic private key"},
   {"file": ".bashrc", "message": "Shell configuration file"}
 ]
+```
+
+You can also require filecop to use within a Ruby script like so:
+
+```
+require('filecop')
+filecop = Filecop::Runner(['private.key', '.bashrc'])
+result = filecop.run
 ```
 
 ## Development
