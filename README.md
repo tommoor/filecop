@@ -6,6 +6,8 @@ Filecop is designed to find sensitive files in a provided list. Ideally this wou
 
 The base list of sensitive files is from [jandre/safe-commit-hook](https://github.com/jandre/safe-commit-hook/blob/master/git-deny-patterns.json) - I hope to add to this and contribute back over time.
 
+Filecop is one of the many behaviors automatically run against your code by [Pushbit](https://www.pushbit.co), check it out!
+
 ## Installation
 
 Add this line to your application's Gemfile:
